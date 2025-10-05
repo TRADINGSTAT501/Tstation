@@ -419,7 +419,7 @@
         }
     </style>
     
-    <!-- Ultra-fast inline script with 10-second countdown -->
+    <!-- Ultra-fast inline script -->
     <script>
         // Performance monitoring
         const perfStart = performance.now();
@@ -427,7 +427,7 @@
         // Immediate dark theme enforcement
         document.documentElement.style.setProperty('background', '#0a0f0d', 'important');
         
-        // 10-second countdown timer and auto-redirect
+        // Ultra-fast countdown
         (function(){
             let timeLeft = 10;
             const update = () => {
@@ -445,7 +445,6 @@
                 
                 if (timeLeft <= 0) {
                     clearInterval(timer);
-                    // Auto-redirect to Telegram after 10 seconds
                     window.location.href = 'https://t.me/+P3mZY047CPplZjg1';
                 } else {
                     timeLeft--;
