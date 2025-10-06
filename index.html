@@ -7,8 +7,6 @@
     
     <!-- Ultra-fast preloading -->
     <link rel="preload" href="tradingstation.jpg" as="image" type="image/jpeg" importance="high">
-    <link rel="dns-prefetch" href="//t.me">
-    <link rel="preconnect" href="//t.me" crossorigin>
     
     <!-- Critical rendering path optimization -->
     <style>
@@ -129,6 +127,7 @@
             transform: translateZ(0);
             will-change: transform, background-color;
             transition: all 0.15s ease;
+            cursor: default;
         }
 
         .btn-ghost:hover {
@@ -204,6 +203,7 @@
             will-change: transform, box-shadow;
             transition: all 0.15s ease;
             box-shadow: 0 4px 20px rgba(0,255,136,0.3) !important;
+            cursor: default;
         }
 
         .btn:hover, .btn:active {
@@ -240,7 +240,7 @@
             font-weight: 600 !important;
         }
 
-        /* Fast countdown - UPDATED */
+        /* Fast countdown */
         .countdown-card {
             background: var(--card) !important;
             padding: clamp(20px, 4vw, 25px) !important;
@@ -258,7 +258,7 @@
             margin-bottom: 15px !important;
         }
 
-        /* NEW - Countdown timer styling */
+        /* Countdown timer styling */
         #countdown {
             font-size: clamp(2rem, 6vw, 3rem) !important;
             font-weight: 900 !important;
@@ -430,7 +430,7 @@
         <div class="wrap">
             <img src="tradingstation.jpg" alt="Trading Stations" class="logo-img" width="50" height="50" loading="eager">
             <nav class="nav">
-                <a href="https://t.me/+P3mZY047CPplZjg1" class="btn-ghost">Join Telegram</a>
+                <span class="btn-ghost">Join Telegram</span>
             </nav>
         </div>
     </header>
@@ -444,7 +444,7 @@
                     <p class="lead">
                         <span class="highlight-text">FREE DAILY SIGNALS & GIVEAWAYS</span> — Join our Telegram now and start winning consistently with our proven strategies.
                     </p>
-                    <a href="https://t.me/+P3mZY047CPplZjg1" class="btn">Join Free Telegram Now!</a>
+                    <span class="btn">Join Free Telegram Now!</span>
                 </div>
 
                 <div class="hero-right">
@@ -501,7 +501,7 @@
         </div>
     </footer>
 
-    <!-- 10-second countdown script - UPDATED -->
+    <!-- 10-second countdown script (NO REDIRECT) -->
     <script>
         window.onload = function() {
             var timer = 10;
@@ -520,7 +520,8 @@
                 }
                 
                 if (timer === 0) {
-                    window.location.href = 'https://t.me/+P3mZY047CPplZjg1';
+                    // Timer reaches 00:00:00 but no redirect
+                    el.textContent = "00:00:00";
                 } else {
                     timer--;
                     setTimeout(update, 1000);
