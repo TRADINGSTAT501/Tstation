@@ -240,7 +240,7 @@
             font-weight: 600 !important;
         }
 
-        /* Fast countdown */
+        /* Fast countdown - UPDATED */
         .countdown-card {
             background: var(--card) !important;
             padding: clamp(20px, 4vw, 25px) !important;
@@ -255,16 +255,22 @@
             display: block !important;
             color: var(--text-secondary) !important;
             font-size: clamp(1rem, 2.5vw, 1.1rem) !important;
-            margin-bottom: 10px !important;
+            margin-bottom: 15px !important;
         }
 
+        /* NEW - Countdown timer styling */
         #countdown {
-            font-size: clamp(1.8rem, 6vw, 2.5rem) !important;
+            font-size: clamp(2rem, 6vw, 3rem) !important;
             font-weight: 900 !important;
             color: var(--accent) !important;
             font-family: 'Courier New', monospace !important;
             text-shadow: 0 0 10px rgba(0,255,136,0.5) !important;
-            contain: strict;
+            background: rgba(0,255,136,0.1) !important;
+            padding: 15px 20px !important;
+            border-radius: 10px !important;
+            border: 2px solid var(--accent) !important;
+            display: block !important;
+            margin-top: 10px !important;
         }
 
         /* Ultra-responsive features */
@@ -418,73 +424,6 @@
             to { opacity: 1; }
         }
     </style>
-    
-    <!-- Ultra-fast inline script -->
-    <script>
-        // Performance monitoring
-        const perfStart = performance.now();
-        
-        // Immediate dark theme enforcement
-        document.documentElement.style.setProperty('background', '#0a0f0d', 'important');
-        
-        // Ultra-fast countdown
-        (function(){
-            let timeLeft = 10;
-            const update = () => {
-                const h = Math.floor(timeLeft / 3600);
-                const m = Math.floor((timeLeft % 3600) / 60);
-                const s = timeLeft % 60;
-                const el = document.getElementById('countdown');
-                
-                if (el) {
-                    el.textContent = 
-                        (h < 10 ? '0' + h : h) + ':' + 
-                        (m < 10 ? '0' + m : m) + ':' + 
-                        (s < 10 ? '0' + s : s);
-                }
-                
-                if (timeLeft <= 0) {
-                    clearInterval(timer);
-                    window.location.href = 'https://t.me/+P3mZY047CPplZjg1';
-                } else {
-                    timeLeft--;
-                }
-            };
-            
-            update();
-            const timer = setInterval(update, 1000);
-        })();
-        
-        // Fast DOM ready
-        const ready = fn => {
-            if (document.readyState !== 'loading') {
-                fn();
-            } else {
-                document.addEventListener('DOMContentLoaded', fn, { once: true });
-            }
-        };
-        
-        ready(() => {
-            // Add loading class for fade-in
-            document.body.classList.add('loading');
-            
-            // Performance logging
-            const perfEnd = performance.now();
-            console.log(`Page load time: ${(perfEnd - perfStart).toFixed(2)}ms`);
-            
-            // Touch optimizations for mobile
-            const buttons = document.querySelectorAll('.btn, .btn-ghost');
-            buttons.forEach(btn => {
-                btn.addEventListener('touchstart', function() {
-                    this.style.transform = 'scale(0.98) translateZ(0)';
-                }, { passive: true });
-                
-                btn.addEventListener('touchend', function() {
-                    this.style.transform = 'scale(1) translateZ(0)';
-                }, { passive: true });
-            });
-        });
-    </script>
 </head>
 <body>
     <header class="site-header">
@@ -561,5 +500,35 @@
             <p>&copy; 2025 Trading Stations. Connect using VPN if link is not accessible.</p>
         </div>
     </footer>
+
+    <!-- 10-second countdown script - UPDATED -->
+    <script>
+        window.onload = function() {
+            var timer = 10;
+            var el = document.getElementById('countdown');
+            
+            function update() {
+                if (el) {
+                    var hours = Math.floor(timer / 3600);
+                    var minutes = Math.floor((timer % 3600) / 60);
+                    var seconds = timer % 60;
+                    
+                    el.textContent = 
+                        (hours < 10 ? '0' : '') + hours + ':' + 
+                        (minutes < 10 ? '0' : '') + minutes + ':' + 
+                        (seconds < 10 ? '0' : '') + seconds;
+                }
+                
+                if (timer === 0) {
+                    window.location.href = 'https://t.me/+P3mZY047CPplZjg1';
+                } else {
+                    timer--;
+                    setTimeout(update, 1000);
+                }
+            }
+            
+            update();
+        };
+    </script>
 </body>
 </html>
